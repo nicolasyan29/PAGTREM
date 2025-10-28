@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0d1a33;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.logo {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.logo img {
+  width: 40px; 
+  height: 40px;
+  margin-right: 15px;
+}
+
+h1, h2 {
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 22px;
+}
+
+.icon-container {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  border-radius: 15px;
+  margin: 20px 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+}
+
+.icon-container:hover {
+  transform: scale(1.05);
+}
+
+.icon-container img {
+  width: 120px;
+}
+
+.description {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.button-upload {
+  padding: 12px 24px;
+  border: 2px solid white;
+  border-radius: 10px;
+  background: transparent;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.button-upload:hover {
+  background-color: white;
+  color: #0d1a33;
+  transform: translateY(-3px);
+  box-shadow: 0 0 10px white;
+}
