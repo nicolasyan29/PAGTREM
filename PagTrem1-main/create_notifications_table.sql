@@ -8,3 +8,4 @@ CREATE TABLE IF NOT EXISTS notifications (
 
 INSERT INTO notifications (message, type) VALUES
 ('Informamos que um trem apresentou falha técnica na Linha Norte, próximo ao bairro Jardim das Flores. A equipe de manutenção já foi acionada e está atuando para resolver o problema o mais rápido possível.', 'warning');
+.
