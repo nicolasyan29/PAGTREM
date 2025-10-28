@@ -1,28 +1,42 @@
-# TODO: Transform to Navigable System with Login/Logout
+# TODO: Refazer Arquivos PHP do PAGTREM
 
-## 1. Database Fixes
-- [x] Update db.sql: Correct "ususarios" to "usuarios", add sensors table with sample data, add categories table if needed.
-- [x] Update config/db.php: Change DB name to "login_db", add charset.
+## Etapas de Refatoração
 
-## 2. Authentication and Sessions
-- [x] Create public/logout.php: Destroy session and redirect to login.
-- [x] Edit public/login.php: Fix table name to "usuarios", add password hashing (update existing data or note).
-- [x] Edit public/cadastro1.php: Complete multi-step registration to include username/senha/cargo, hash password, fix form to single POST.
+### 1. Arquivos de Cadastro (cadastro1.php, cadastro2.php, cadastro3.php, cadastro4.php)
+- [x] cadastro1.php: Refazer com validação aprimorada, sessão limpa.
+- [x] cadastro2.php: Corrigir validação de data, melhorar UI.
+- [x] cadastro3.php: Integrar localização corretamente, redirecionar após salvar.
+- [x] cadastro4.php: Melhorar upload de foto, inserir dados no banco.
 
-## 3. Navigation
-- [x] Edit public/menu.php: Make it includable (remove full HTML), add session check, add logout link.
-- [x] Add session checks to all protected pages: dashboard.php, gestaoderotas.php, relatorios.php, notificacoes.php, monitoramento.php, etc.
+### 2. Arquivos de Autenticação (login.php, logout.php, recuperaçãodesenha.php)
+- [x] login.php: Refazer com prepared statements consistentes.
+- [x] logout.php: Simples, manter como está.
+- [x] recuperaçãodesenha.php: Corrigir typo "ususarios" para "usuarios", melhorar lógica.
 
-## 4. Dashboard with Data
-- [x] Edit public/dashboard.php: Display real data like user count, sensor statuses, categories.
+### 3. Páginas Principais (dashboard.php, menu.php, telainicial.php)
+- [x] dashboard.php: Melhorar exibição de stats, incluir menu.
+- [x] menu.php: Garantir links corretos, sessão check.
+- [x] telainicial.php: Corrigir link para login.php.
 
-## 5. User Listing
-- [x] Create public/lista_usuarios.php: Display users table, link from menu.
+### 4. Funcionalidades (chat.php, contatos.php, notificacoes.php, relatorios.php, monitoramento.php, gestaoderotas.php, lista_usuarios.php)
+- [x] chat.php: Melhorar inserção de mensagens, exibição.
+- [x] contatos.php: Corrigir link para chat.php.
+- [ ] notificacoes.php: Exibir notificações corretamente.
+- [ ] relatorios.php: Melhorar layout, incluir dados dinâmicos se possível.
+- [ ] monitoramento.php: Exibir tabela de sensores.
+- [ ] gestaoderotas.php: Melhorar CRUD de rotas.
+- [ ] lista_usuarios.php: Exibir lista de usuários.
 
-## 6. Sensor Tables
-- [x] Edit public/monitoramento.php: Add sensor data table, include menu and session check.
+### 5. Páginas de Email (email.php, e-mailNãoencontrado.php)
+- [ ] email.php: Melhorar logging, UI.
+- [ ] e-mailNãoencontrado.php: Refazer com PHP mais limpo.
 
-## 7. Testing and Fixes
-- [x] Execute SQL updates to apply schema changes (manual via XAMPP/phpMyAdmin).
-- [x] Test login/logout, navigation, data display.
-- [x] Fix any errors from edits.
+### 6. Testes e Validação
+- [ ] Testar fluxo completo: cadastro -> login -> dashboard.
+- [ ] Verificar links e redirecionamentos.
+- [ ] Corrigir erros de banco de dados.
+
+### 7. Melhorias Gerais
+- [ ] Padronizar includes (db.php, session_start).
+- [ ] Melhorar segurança: escapar outputs, validar inputs.
+- [ ] Atualizar CSS/JS links se necessário.

@@ -15,26 +15,32 @@ if (!isset($_SESSION['user_id'])) {
 
     <div class="menu-items-container">
         <a href="dashboard.php" class="menu-item">
-            Dashboard
+            <i class="fas fa-tachometer-alt"></i> Dashboard
         </a>
         <a href="gestaoderotas.php" class="menu-item">
-            Gestão de Rotas
+            <i class="fas fa-route"></i> Gestão de Rotas
         </a>
         <a href="relatorios.php" class="menu-item">
-            Relatórios e análises
+            <i class="fas fa-chart-bar"></i> Relatórios e análises
         </a>
         <a href="notificacoes.php" class="menu-item notification-item">
-            Notificações
+            <i class="fas fa-bell"></i> Notificações
             <span class="badge"></span>
         </a>
         <a href="monitoramento.php" class="menu-item">
-            Monitoramento de manutenções
+            <i class="fas fa-tools"></i> Monitoramento de manutenções
         </a>
         <a href="lista_usuarios.php" class="menu-item">
-            Lista de Usuários
+            <i class="fas fa-users"></i> Lista de Usuários
+        </a>
+        <a href="chat.php" class="menu-item">
+            <i class="fas fa-comments"></i> Chat
+        </a>
+        <a href="contatos.php" class="menu-item">
+            <i class="fas fa-address-book"></i> Contatos
         </a>
         <a href="logout.php" class="menu-item">
-            Logout
+            <i class="fas fa-sign-out-alt"></i> Logout
         </a>
     </div>
 
