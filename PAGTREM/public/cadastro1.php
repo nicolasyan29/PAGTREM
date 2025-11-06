@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Limpar sessões de cadastro anteriores
+
 unset($_SESSION['cadastro_username'], $_SESSION['cadastro_senha'], $_SESSION['cadastro_cargo'], $_SESSION['cadastro_nome'], $_SESSION['cadastro_nascimento'], $_SESSION['cadastro_localizacao']);
 
 $error = '';
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro - Usuário</title>
-    <link rel="stylesheet" href="../style/cadastro1.css">
+    <link rel="stylesheet" href="../style/combined.css">
 </head>
 <body>
     <div class="container">

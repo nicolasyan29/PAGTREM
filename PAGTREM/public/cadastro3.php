@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Verificar se as sessões anteriores existem
+
 if (!isset($_SESSION['cadastro_nome'])) {
     header("Location: cadastro2.php");
     exit();
