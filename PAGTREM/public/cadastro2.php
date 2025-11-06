@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro - Dados Pessoais</title>
-    <link rel="stylesheet" href="../style/cadastro2.css">
+    <link rel="stylesheet" href="../style/combined.css">
 </head>
 <body>
     <div class="container">
