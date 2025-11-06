@@ -11,15 +11,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($emailOrUsername)) {
         $error = "Por favor, preencha o campo.";
     } else {
-        // Verificar se é username ou email (assumindo que username é usado)
+       
         $stmt = $conn->prepare("SELECT pk FROM usuarios WHERE username = ?");
         $stmt->bind_param("s", $emailOrUsername);
         $stmt->execute();
         $result = $stmt->get_result();
 
         if ($result->num_rows === 1) {
-            // Em um sistema real, enviar email com token de reset
-            // Por enquanto, apenas simular sucesso
+            
+            
             $success = "Instruções para redefinir a senha foram enviadas para o seu e-mail.";
         } else {
             $error = "Usuário não encontrado.";
@@ -36,7 +36,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redefinir Senha</title>
-    <link rel="stylesheet" href="../style/recuperaçãodesenha.css">
+    <link rel="stylesheet" href="../style/combined.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>

@@ -20,7 +20,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Usuários</title>
-    <link rel="stylesheet" href="../style/dashboard.css"> <!-- Reuse dashboard style -->
+    <link rel="stylesheet" href="../style/combined.css"> 
 </head>
 <body>
     <div class="container">

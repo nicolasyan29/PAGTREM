@@ -33,8 +33,8 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat - PAGTREM</title>
-    <link rel="stylesheet" href="../style/chat.css">
-    <link rel="stylesheet" href="../style/">
+    <link rel="stylesheet" href="../style/combined.css">
+    <link rel="stylesheet" href="../style/combined.css">
 </head>
 <body>
     <div class="chat-container">
