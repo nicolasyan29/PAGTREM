@@ -8,9 +8,15 @@ if (!isset($_SESSION['user_id'])) {
 
 include '../config/db.php';
 
-
-$sql = "SELECT * FROM notifications ORDER BY created_at DESC";
-$result = $conn->query($sql);
+try {
+    $sql = "SELECT * FROM notifications ORDER BY created_at DESC";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $notifications = $stmt->fetchAll();
+} catch (PDOException $e) {
+    error_log("Erro ao buscar notificações: " . $e->getMessage());
+    $notifications = [];
+}
 ?>
 
 <html lang="en">
@@ -30,14 +36,14 @@ $result = $conn->query($sql);
             <h1 class="notification-title">Notificações</h1>
         </header>
         <main class="notification-main">
-            <?php if ($result->num_rows > 0): ?>
-                <?php while($row = $result->fetch_assoc()): ?>
+            <?php if (!empty($notifications)): ?>
+                <?php foreach($notifications as $row): ?>
                     <div class="notification-card">
                         <p><?php echo htmlspecialchars($row['message']); ?></p>
                         <div class="arrow-up"></div>
                         <p class="important-communication">Comunicado importante!</p>
                     </div>
-                <?php endwhile; ?>
+                <?php endforeach; ?>
             <?php else: ?>
                 <div class="notification-card">
                     <p>Nenhuma notificação disponível no momento.</p>

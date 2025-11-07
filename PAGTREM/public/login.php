@@ -11,28 +11,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($username) || empty($password)) {
         $error = "Preencha todos os campos.";
     } else {
-        $stmt = $conn->prepare("SELECT pk, username, senha FROM usuarios WHERE username = ?");
-        $stmt->bind_param("s", $username);
-        $stmt->execute();
-        $result = $stmt->get_result();
+        try {
+            $stmt = $conn->prepare("SELECT pk, username, senha FROM usuarios WHERE username = ?");
+            $stmt->execute([$username]);
+            $row = $stmt->fetch();
 
-        if ($result->num_rows === 1) {
-            $row = $result->fetch_assoc();
-            if (password_verify($password, $row['senha'])) {
-                $_SESSION['user_id'] = $row['pk'];
-                $_SESSION['username'] = $row['username'];
-                header("Location: dashboard.php");
-                exit();
+            if ($row) {
+                if (password_verify($password, $row['senha'])) {
+                    $_SESSION['user_id'] = $row['pk'];
+                    $_SESSION['username'] = $row['username'];
+                    header("Location: dashboard.php");
+                    exit();
+                } else {
+                    $error = "Usuário ou senha inválidos.";
+                }
             } else {
                 $error = "Usuário ou senha inválidos.";
             }
-        } else {
-            $error = "Usuário ou senha inválidos.";
+        } catch (PDOException $e) {
+            error_log("Erro no login: " . $e->getMessage());
+            $error = "Erro interno do servidor.";
         }
-        $stmt->close();
     }
 }
-$conn->close();
 ?>
 
 <!DOCTYPE html>

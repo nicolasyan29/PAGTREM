@@ -8,10 +8,15 @@ if (!isset($_SESSION['user_id'])) {
 
 include '../config/db.php';
 
-$sql = "SELECT id, name, status, location, last_update FROM sensors ORDER BY last_update DESC";
-$result = $conn->query($sql);
-
-$conn->close();
+try {
+    $sql = "SELECT id, name, status, location, last_update FROM sensors ORDER BY last_update DESC";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $sensors = $stmt->fetchAll();
+} catch (PDOException $e) {
+    error_log("Erro ao buscar sensores: " . $e->getMessage());
+    $sensors = [];
+}
 ?>
 
 <!DOCTYPE html>
@@ -41,8 +46,8 @@ $conn->close();
                 </tr>
             </thead>
             <tbody>
-                <?php if ($result->num_rows > 0): ?>
-                    <?php while ($row = $result->fetch_assoc()): ?>
+                <?php if (!empty($sensors)): ?>
+                    <?php foreach ($sensors as $row): ?>
                         <tr>
                             <td><?php echo htmlspecialchars($row['id']); ?></td>
                             <td><?php echo htmlspecialchars($row['name']); ?></td>
@@ -50,7 +55,7 @@ $conn->close();
                             <td><?php echo htmlspecialchars($row['location']); ?></td>
                             <td><?php echo htmlspecialchars($row['last_update']); ?></td>
                         </tr>
-                    <?php endwhile; ?>
+                    <?php endforeach; ?>
                 <?php else: ?>
                     <tr>
                         <td colspan="5">Nenhum sensor encontrado.</td>

@@ -9,33 +9,35 @@ if (!isset($_SESSION['user_id'])) {
 include '../config/db.php';
 
 // Buscar categorias
-$sql = "SELECT name FROM categories ORDER BY name";
-$result = $conn->query($sql);
-$categories = [];
-if ($result && $result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $categories[] = htmlspecialchars($row['name']);
+try {
+    $sql = "SELECT name FROM categories ORDER BY name";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $categories = $stmt->fetchAll(PDO::FETCH_COLUMN);
+    if (empty($categories)) {
+        $categories = ["Monotrilhos", "De passageiros", "Trens militarizados"];
     }
-} else {
+} catch (PDOException $e) {
+    error_log("Erro ao buscar categorias: " . $e->getMessage());
     $categories = ["Monotrilhos", "De passageiros", "Trens militarizados"];
 }
 
-// Contar usuários
-$user_count_sql = "SELECT COUNT(*) as total FROM usuarios";
-$user_result = $conn->query($user_count_sql);
-$user_count = ($user_result) ? $user_result->fetch_assoc()['total'] : 0;
-
-// Contar sensores
-$sensor_count_sql = "SELECT COUNT(*) as total FROM sensors";
-$sensor_result = $conn->query($sensor_count_sql);
-$sensor_count = ($sensor_result) ? $sensor_result->fetch_assoc()['total'] : 0;
-
-// Contar rotas
-$route_count_sql = "SELECT COUNT(*) as total FROM routes";
-$route_result = $conn->query($route_count_sql);
-$route_count = ($route_result) ? $route_result->fetch_assoc()['total'] : 0;
-
-$conn->close();
+// Contar usuários, sensores e rotas em uma única query otimizada
+try {
+    $count_sql = "SELECT
+        (SELECT COUNT(*) FROM usuarios) as user_count,
+        (SELECT COUNT(*) FROM sensors) as sensor_count,
+        (SELECT COUNT(*) FROM routes) as route_count";
+    $stmt = $conn->prepare($count_sql);
+    $stmt->execute();
+    $counts = $stmt->fetch();
+    $user_count = $counts['user_count'] ?? 0;
+    $sensor_count = $counts['sensor_count'] ?? 0;
+    $route_count = $counts['route_count'] ?? 0;
+} catch (PDOException $e) {
+    error_log("Erro ao contar registros: " . $e->getMessage());
+    $user_count = $sensor_count = $route_count = 0;
+}
 ?>
 
 <!DOCTYPE html>

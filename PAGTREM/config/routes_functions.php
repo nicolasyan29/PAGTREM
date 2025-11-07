@@ -3,50 +3,67 @@ include 'db.php';
 
 function getRoutes() {
     global $conn;
-    $sql = "SELECT * FROM routes ORDER BY id DESC";
-    $result = $conn->query($sql);
-    $routes = [];
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $routes[] = $row;
-        }
+    try {
+        $sql = "SELECT * FROM routes ORDER BY id DESC";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    } catch (PDOException $e) {
+        error_log("Erro ao buscar rotas: " . $e->getMessage());
+        return [];
     }
-    return $routes;
 }
 
 function addRoute($name, $description, $status) {
     global $conn;
-    $sql = "INSERT INTO routes (name, description, status) VALUES (?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sss", $name, $description, $status);
-    return $stmt->execute();
+    try {
+        $sql = "INSERT INTO routes (name, description, status) VALUES (?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        return $stmt->execute([$name, $description, $status]);
+    } catch (PDOException $e) {
+        error_log("Erro ao adicionar rota: " . $e->getMessage());
+        return false;
+    }
 }
 
 function updateRoute($id, $name, $description, $status) {
     global $conn;
-    $sql = "UPDATE routes SET name=?, description=?, status=? WHERE id=?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssi", $name, $description, $status, $id);
-    return $stmt->execute();
+    try {
+        $sql = "UPDATE routes SET name=?, description=?, status=? WHERE id=?";
+        $stmt = $conn->prepare($sql);
+        return $stmt->execute([$name, $description, $status, $id]);
+    } catch (PDOException $e) {
+        error_log("Erro ao atualizar rota: " . $e->getMessage());
+        return false;
+    }
 }
 
 function deleteRoute($id) {
     global $conn;
-    $sql = "DELETE FROM routes WHERE id=?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $id);
-    return $stmt->execute();
+    try {
+        $sql = "DELETE FROM routes WHERE id=?";
+        $stmt = $conn->prepare($sql);
+        return $stmt->execute([$id]);
+    } catch (PDOException $e) {
+        error_log("Erro ao deletar rota: " . $e->getMessage());
+        return false;
+    }
 }
 
 function createRoutesTable() {
     global $conn;
-    $sql = "CREATE TABLE IF NOT EXISTS routes (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(255) NOT NULL,
-        description TEXT,
-        status ENUM('active', 'inactive') DEFAULT 'active',
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    )";
-    return $conn->query($sql);
+    try {
+        $sql = "CREATE TABLE IF NOT EXISTS routes (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            name VARCHAR(255) NOT NULL,
+            description TEXT,
+            status ENUM('active', 'inactive') DEFAULT 'active',
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )";
+        return $conn->exec($sql) !== false;
+    } catch (PDOException $e) {
+        error_log("Erro ao criar tabela routes: " . $e->getMessage());
+        return false;
+    }
 }
 ?>
