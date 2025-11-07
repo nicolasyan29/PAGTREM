@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Verificar se as sessões anteriores existem
+
 if (!isset($_SESSION['cadastro_username'])) {
     header("Location: cadastro1.php");
     exit();
@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     } elseif (!preg_match("/^\d{2}\/\d{2}\/\d{4}$/", $nascimento)) {
         $erro = "Data de nascimento inválida. Use o formato dd/mm/aaaa.";
     } else {
-        // Validar se a data é real
+        
         list($dia, $mes, $ano) = explode('/', $nascimento);
         if (!checkdate($mes, $dia, $ano)) {
             $erro = "Data de nascimento inválida.";
@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro - Dados Pessoais</title>
-    <link rel="stylesheet" href="../style/cadastro2.css">
+    <link rel="stylesheet" href="../style/combined.css">
 </head>
 <body>
     <div class="container">

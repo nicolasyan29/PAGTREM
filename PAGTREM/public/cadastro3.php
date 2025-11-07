@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Verificar se as sessões anteriores existem
+
 if (!isset($_SESSION['cadastro_nome'])) {
     header("Location: cadastro2.php");
     exit();
@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro - Localização</title>
-    <link rel="stylesheet" href="../style/cadastro3.css">
+    <link rel="stylesheet" href="../style/combined.css">
 </head>
 <body>
     <div>

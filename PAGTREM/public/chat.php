@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['message'])) {
         $stmt->bind_param("is", $user_id, $message);
         $stmt->execute();
         $stmt->close();
-        // Redirecionar para evitar reenvio
+        
         header("Location: chat.php");
         exit();
     }
@@ -33,8 +33,8 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat - PAGTREM</title>
-    <link rel="stylesheet" href="../style/chat.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../style/combined.css">
+    <link rel="stylesheet" href="../style/combined.css">
 </head>
 <body>
     <div class="chat-container">
