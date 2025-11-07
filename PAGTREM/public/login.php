@@ -11,29 +11,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($username) || empty($password)) {
         $error = "Preencha todos os campos.";
     } else {
-        try {
-            $stmt = $conn->prepare("SELECT pk, username, senha FROM usuarios WHERE username = ?");
-            $stmt->execute([$username]);
-            $row = $stmt->fetch();
+        $stmt = $conn->prepare("SELECT pk, username, senha FROM usuarios WHERE username = ?");
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-            if ($row) {
-                if (password_verify($password, $row['senha'])) {
-                    $_SESSION['user_id'] = $row['pk'];
-                    $_SESSION['username'] = $row['username'];
-                    header("Location: dashboard.php");
-                    exit();
-                } else {
-                    $error = "Usuário ou senha inválidos.";
-                }
+        if ($result->num_rows === 1) {
+            $row = $result->fetch_assoc();
+            if (password_verify($password, $row['senha'])) {
+                $_SESSION['user_id'] = $row['pk'];
+                $_SESSION['username'] = $row['username'];
+                header("Location: dashboard.php");
+                exit();
             } else {
                 $error = "Usuário ou senha inválidos.";
             }
-        } catch (PDOException $e) {
-            error_log("Erro no login: " . $e->getMessage());
-            $error = "Erro interno do servidor.";
+        } else {
+            $error = "Usuário ou senha inválidos.";
         }
+        $stmt->close();
     }
 }
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="../style/combined.css">
+    <link rel="stylesheet" href="../style/login.css">
 </head>
 <body>
     <div id="login">
