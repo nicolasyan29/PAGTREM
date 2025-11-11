@@ -14,7 +14,7 @@ $cards = [
     <meta charset="UTF-8">
     <title><?php echo $titulo; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="relatorios.css">
+    <link rel="stylesheet" href="../style/relatios.css">
 </head>
 <body>
     <div class="app">
