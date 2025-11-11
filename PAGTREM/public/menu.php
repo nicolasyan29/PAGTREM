@@ -1,58 +1,34 @@
-<?php
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit();
-}
-?>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <link rel="stylesheet" href="../style/menu.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+            </div>
+            <h1>MENU</h1>
+        </header>
 
-<div class="app-container">
-    <div class="header">
-        <div class="icon-left">
-            <i class="fas fa-train"></i>
-        </div>
-        <div class="header-title">MENU</div>
-    </div>
+        <nav class="menu">
+            <a href="#" class="btn">Dashboard</a>
+            <a href="#" class="btn">Gestão de Rotas</a>
+            <a href="#" class="btn">Relatórios e Análises</a>
+            <a href="#" class="btn notification">
+                Notificações
+                <span class="dot"></span>
+            </a>
+            <a href="#" class="btn">Monitoramento de Manutenções</a>
+        </nav>
 
-    <div class="menu-items-container">
-        <a href="dashboard.php" class="menu-item">
-            <i class="fas fa-tachometer-alt"></i> Dashboard
-        </a>
-        <a href="gestaoderotas.php" class="menu-item">
-            <i class="fas fa-route"></i> Gestão de Rotas
-        </a>
-        <a href="relatorios.php" class="menu-item">
-            <i class="fas fa-chart-bar"></i> Relatórios e análises
-        </a>
-        <a href="notificacoes.php" class="menu-item notification-item">
-            <i class="fas fa-bell"></i> Notificações
-            <span class="badge"></span>
-        </a>
-        <a href="monitoramento.php" class="menu-item">
-            <i class="fas fa-tools"></i> Monitoramento de manutenções
-        </a>
-        <a href="lista_usuarios.php" class="menu-item">
-            <i class="fas fa-users"></i> Lista de Usuários
-        </a>
-        <a href="chat.php" class="menu-item">
-            <i class="fas fa-comments"></i> Chat
-        </a>
-        <a href="contatos.php" class="menu-item">
-            <i class="fas fa-address-book"></i> Contatos
-        </a>
-        <a href="logout.php" class="menu-item">
-            <i class="fas fa-sign-out-alt"></i> Logout
-        </a>
+        <footer class="nav-footer">
+            <span class="nav-icon">⬅️</span>
+            <span class="nav-icon">🏠</span>
+            <span class="nav-icon">➡️</span>
+        </footer>
     </div>
-
-    <div class="navbar">
-        <div class="nav-icon" id="nav-back">
-            <i class="fas fa-arrow-left"></i>
-        </div>
-        <div class="nav-icon active" id="nav-home">
-            <i class="fas fa-home"></i>
-        </div>
-        <div class="nav-icon" id="nav-forward">
-            <i class="fas fa-arrow-right"></i>
-        </div>
-    </div>
-</div>
+</body>
+</html>
