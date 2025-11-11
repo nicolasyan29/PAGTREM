@@ -1,5 +1,4 @@
 <?php
-// Dados simulados
 $titulo = "Relatórios e análises";
 $icone = "🚆";
 $cards = [
@@ -33,20 +32,17 @@ $cards = [
 
         <nav class="bottom-nav">
             <button class="nav-btn" aria-label="Início">
-                <!-- Ícone casa -->
                 <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
                     <path fill="currentColor" d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3z"/>
                 </svg>
             </button>
             <button class="nav-btn active" aria-label="Status">
-                <!-- Ícone alvo/ponto -->
                 <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
                     <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
                     <circle cx="12" cy="12" r="3" fill="currentColor"/>
                 </svg>
             </button>
             <button class="nav-btn" aria-label="Início 2">
-                <!-- Ícone casa alternativa -->
                 <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
                     <path fill="currentColor" d="M4 10l8-6 8 6v10a2 2 0 0 1-2 2h-4v-6H10v6H6a2 2 0 0 1-2-2V10z"/>
                 </svg>

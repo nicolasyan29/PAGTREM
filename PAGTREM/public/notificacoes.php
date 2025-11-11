@@ -1,7 +1,6 @@
 <?php
-// Exemplo de dados vindos do sistema
 $titulo = "Notificações";
-$icone = "🚆"; // pode trocar por um SVG ou imagem
+$icone = "🚆"; 
 $mensagem = "Informamos que um trem apresentou falha técnica na Linha Norte, próximo ao bairro Jardim das Flores. A equipe de manutenção já foi acionada e está atuando para resolver o problema o mais rápido possível.";
 $alerta = "Comunicado importante!";
 ?>
