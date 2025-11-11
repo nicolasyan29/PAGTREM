@@ -78,7 +78,6 @@ $conn->close();
     </div>
     <script src="../script/script.js"></script>
     <script>
-        // Rolagem automática para o final do chat
         const chatMain = document.getElementById('chat-messages');
         chatMain.scrollTop = chatMain.scrollHeight;
     </script>

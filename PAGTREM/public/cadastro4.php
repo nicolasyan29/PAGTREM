@@ -9,15 +9,12 @@
 <body>
 
     <div class="container">
-        <!-- Ícone do topo -->
         <div class="icon-top">
             <img src="icone-trem.png" alt="Ícone Trem">
         </div>
 
-        <!-- Título -->
         <h1>Cadastro</h1>
 
-        <!-- Área de upload -->
         <div class="profile-upload">
             <label for="foto">
                 <div class="profile-icon">
@@ -28,13 +25,10 @@
             <input type="file" id="foto" name="foto" accept="image/*" hidden>
         </div>
 
-        <!-- Texto informativo -->
         <p>Selecione uma foto de perfil uniformizado.</p>
 
-        <!-- Botão de continuar -->
         <button class="btn-continuar" disabled>Continuar</button>
 
-        <!-- Botões de navegação -->
         <div class="nav-buttons">
             <button type="button" class="btn-nav">&#8592;</button>
             <button type="button" class="btn-home">&#8962;</button>
@@ -43,7 +37,6 @@
     </div>
 
     <script>
-        // Ativa o botão quando uma foto é selecionada
         const fotoInput = document.getElementById("foto");
         const btnContinuar = document.querySelector(".btn-continuar");
 

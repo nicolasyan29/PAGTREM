@@ -1,5 +1,4 @@
 <?php
-// dashboard.php
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -12,7 +11,7 @@
     <div class="dashboard">
         <header>
             <div class="icon">
-                🚆 <!-- Ícone de trem -->
+                🚆 
             </div>
             <h1>Dashboard</h1>
         </header>

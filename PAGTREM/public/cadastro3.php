@@ -9,15 +9,12 @@
 <body>
 
     <div class="container">
-        <!-- Ícone do topo -->
         <div class="icon-top">
             <img src="icone-trem.png" alt="Ícone Trem">
         </div>
 
-        <!-- Título -->
         <h1>Cadastro</h1>
 
-        <!-- Formulário -->
         <form action="#" method="POST">
             <label for="localizacao">Sua localização:</label>
             <select id="localizacao" name="localizacao" required>
@@ -29,14 +26,12 @@
                 <option value="outros">Outros</option>
             </select>
 
-            <!-- Indicadores -->
             <div class="dots">
                 <span class="dot active"></span>
                 <span class="dot active"></span>
                 <span class="dot active"></span>
             </div>
 
-            <!-- Botões de navegação -->
             <div class="nav-buttons">
                 <button type="button" class="btn-nav">&#8592;</button>
                 <button type="button" class="btn-home">&#8962;</button>

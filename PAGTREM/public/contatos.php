@@ -47,7 +47,6 @@ if (!isset($_SESSION['user_id'])) {
     <script src="../script/script.js"></script>
     <script>
         function logClick() {
-            // Log do clique no chat
             fetch('log_click.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
