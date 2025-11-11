@@ -3,31 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial - PAGTREM</title>
-    <link rel="stylesheet" href="../style/combined.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>PagTrem Funcionários</title>
+    <link rel="stylesheet" href=".../style/combined.css">
 </head>
-<body>
+<body onclick="iniciarApp()">
     <div class="container">
-        <div id="logo">
-            <img src="../img/icone pagtrem.png" alt="Logo PAGTREM" width="420" height="250">
+        <div class="logo">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="white" viewBox="0 0 24 24">
+                <path d="M12 2c4.97 0 9 1.79 9 4v10c0 2.21-4.03 4-9 4s-9-1.79-9-4V6c0-2.21 4.03-4 9-4zm0 2c-3.87 0-7 .9-7 2s3.13 2 7 2 7-.9 7-2-3.13-2-7-2zm0 6c-3.87 0-7 .9-7 2s3.13 2 7 2 7-.9 7-2-3.13-2-7-2zm0 6c-3.87 0-7 .9-7 2s3.13 2 7 2 7-.9 7-2-3.13-2-7-2z"/>
+            </svg>
         </div>
-        <div class="content">
-            <h1>Bem-vindo ao PAGTREM</h1>
-            <p>Sistema de Gestão de Trens</p>
-            <div class="buttons">
-                <a href="login.php" class="btn btn-primary">
-                    <i class="fas fa-sign-in-alt"></i> Entrar
-                </a>
-                <a href="cadastro1.php" class="btn btn-secondary">
-                    <i class="fas fa-user-plus"></i> Cadastrar
-                </a>
-            </div>
-        </div>
-        <div class="footer">
-            <p>&copy; 2023 PAGTREM - Todos os direitos reservados</p>
-        </div>
+        <h1>PagTrem</h1>
+        <h2>Funcionários</h2>
+        <p>Clique na tela para iniciar</p>
     </div>
-    <script src="../script/script.js"></script>
+
+    <script>
+        function iniciarApp() {
+            window.location.href = "home.php"; 
+        }
+    </script>
 </body>
 </html>
