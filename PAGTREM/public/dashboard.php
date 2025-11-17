@@ -8,7 +8,6 @@ if (!isset($_SESSION['user_id'])) {
 
 include '../config/db.php';
 
-// Buscar categorias
 try {
     $sql = "SELECT name FROM categories ORDER BY name";
     $stmt = $conn->prepare($sql);
@@ -22,7 +21,6 @@ try {
     $categories = ["Monotrilhos", "De passageiros", "Trens militarizados"];
 }
 
-// Contar usuários, sensores e rotas em uma única query otimizada
 try {
     $count_sql = "SELECT
         (SELECT COUNT(*) FROM usuarios) as user_count,

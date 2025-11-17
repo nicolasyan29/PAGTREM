@@ -34,7 +34,6 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat - PAGTREM</title>
     <link rel="stylesheet" href="../style/combined.css">
-    <link rel="stylesheet" href="../style/combined.css">
 </head>
 <body>
     <div class="chat-container">
@@ -78,7 +77,6 @@ $conn->close();
     </div>
     <script src="../script/script.js"></script>
     <script>
-        // Rolagem automática para o final do chat
         const chatMain = document.getElementById('chat-messages');
         chatMain.scrollTop = chatMain.scrollHeight;
     </script>
