@@ -1,94 +1,99 @@
+/* Estilo geral */
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, sans-serif;
-  background-color: #0d1a33;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
+    background-color: #001233;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
+/* Container central */
 .container {
-  margin-top: 50px;
-  text-align: center;
+    width: 300px;
+    text-align: center;
+    position: relative;
 }
 
-.logo {
-  background-color: #0d1a33;
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 40px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+/* Ícone superior */
+.icon-top img {
+    width: 30px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }
 
-.logo img {
-  width: 40px; 
-  height: 40px;
-  margin-right: 15px;
-}
-
+/* Título */
 h1 {
-  font-size: 24px;
-  margin-bottom: 10px;
+    margin-top: 60px;
+    font-size: 22px;
+    font-weight: bold;
 }
 
-h2 {
-  font-size: 20px;
-  margin-bottom: 30px;
+/* Label */
+label {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    margin-top: 25px;
+    margin-bottom: 5px;
 }
 
-.label-local {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 15px;
+/* Select (menu suspenso) */
+select {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    text-align: center;
+    appearance: none;
+    background-color: white;
+    color: #666;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='%23001233' viewBox='0 0 24 24'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 16px;
+    cursor: pointer;
 }
 
-.button-local {
-  display: inline-block;
-  padding: 12px 25px;
-  background-color: transparent;
-  border: 2px solid white;
-  border-radius: 8px;
-  color: white;
-  font-weight: bold;
-  font-size: 16px;
-  text-decoration: none;
-  transition: all 0.3s ease;
+/* Indicadores de progresso */
+.dots {
+    margin: 25px 0;
 }
 
-.button-local:hover {
-  background-color: white;
-  color: #0d1a33;
-  transform: translateY(-2px);
+.dot {
+    height: 15px;
+    width: 15px;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px;
 }
 
-.progress-container {
-  width: 80%;
-  max-width: 400px;
-  margin-top: 50px;
+.dot.active {
+    background-color: white;
 }
 
-.progress-text {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 5px;
-  font-size: 12px;
-  letter-spacing: 2px;
+/* Botões de navegação */
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.progress-bar {
-  width: 100%;
-  height: 20px;
-  border: 2px solid white;
-  border-radius: 10px;
-  overflow: hidden;
+.btn-nav,
+.btn-home {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
 }
 
-.progress-fill {
-  width: 15%;
-  height: 100%;
-  background: linear-gradient(90deg, #00ffcc, #0077ff);
-  transition: width 0.5s ease;
+.btn-home {
+    font-size: 26px;
 }
