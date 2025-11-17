@@ -1,25 +1,36 @@
-<?php
-$logFile = '../logs/email_access.log';
-$logMessage = date('Y-m-d H:i:s') . ' - ' . $_SERVER['REQUEST_METHOD'] . ' ' . $_SERVER['REQUEST_URI'] . ' - IP: ' . $_SERVER['REMOTE_ADDR'] . "\n";
-file_put_contents($logFile, $logMessage, FILE_APPEND);
-?>
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-mail Encontrado</title>
-    <link rel="stylesheet" href="../style/combined.css">
-    <script src="../script/script.js"></script>
+    <link rel="stylesheet" href="../style/email.css">
 </head>
 
 <body>
-    <div>
-        <img src="../img/unnamed.png" alt="" width="420" height="250">
-    </div>
-    <div>
-        <h1>✉✔</h1>
-        <h1>E-mail encontrado em nossa base de dados, confira
-            sua caixa de e-mail.</h1>
+    <div class="container">
+        <header>
+            <img src="icone_trem.png" alt="Ícone do app" class="icone">
+        </header>
+
+        <main>
+            <p class="mensagem">
+                E-mail encontrado em <br>
+                nossa base de dados, <br>
+                confira sua caixa de e-mail.
+            </p>
+
+            <div class="icone-email">
+                <img src="icone_email.png" alt="Ícone de e-mail" class="email">
+                <img src="check.png" alt="Check verde" class="check">
+            </div>
+        </main>
+
+        <footer>
+            <button class="botao"><img src="voltar.png" alt="Voltar"></button>
+            <button class="botao"><img src="home.png" alt="Home"></button>
+            <button class="botao"><img src="avancar.png" alt="Avançar"></button>
+        </footer>
     </div>
 </body>
 

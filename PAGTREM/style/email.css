@@ -1,31 +1,76 @@
 body {
-    background-color: #0d1a33;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
     margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #001f3f;
+    color: white;
+display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-div {
-    margin: 20px;
+.container {
+    width: 320px;
+    height: 550px;
+    background-color: #001f3f;
+    border-radius: 40px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+header {
+    text-align: left;
+}
+
+.icone {
+    width: 30px;
+}
+
+main {
     text-align: center;
 }
 
-img {
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+.mensagem {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.5;
+    margin-bottom: 40px;
 }
 
-h1 {
-    font-size: 24px;
-    color: white;
+.icone-email {
+    position: relative;
+    display: inline-block;
+}
+
+.email {
+    width: 70px;
+}
+
+.check {
+    position: absolute;
+    bottom: 0;
+    right: -10px;
+    width: 25px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.botao {
+    background: none;
+    border: none;
     cursor: pointer;
-    transition: color 0.3s ease;
+
 }
 
-h1:hover {
-    color: #0077cc;
+.botao img {
+    width: 30px;
 }

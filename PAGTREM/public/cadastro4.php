@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 if (!isset($_SESSION['cadastro_localizacao'])) {
     header("Location: cadastro3.php");
     exit();
@@ -16,66 +17,48 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $error_message = "Por favor, selecione uma foto válida.";
     } else {
         $foto = $_FILES['foto'];
-        $target_dir = "../uploads/";
-
+        $target_dir = "../uploads/"; 
         if (!is_dir($target_dir)) {
-            mkdir($target_dir, 0777, true);
+            mkdir($target_dir, 0755, true);
         }
-
-        $imageFileType = strtolower(pathinfo($foto["name"], PATHINFO_EXTENSION));
-        $novo_nome = uniqid('profile_', true) . '.' . $imageFileType;
-        $target_file = $target_dir . $novo_nome;
+        $original_name = basename($foto["name"]);
+        $imageFileType = strtolower(pathinfo($original_name, PATHINFO_EXTENSION));
+        $new_name = uniqid('profile_', true) . '.' . $imageFileType;
+        $target_file = $target_dir . $new_name;
 
         $check = getimagesize($foto["tmp_name"]);
         if ($check === false) {
             $error_message = "O arquivo não é uma imagem válida.";
         } elseif ($foto["size"] > 5000000) {
             $error_message = "O arquivo é muito grande (máx. 5MB).";
-        } elseif (!in_array($imageFileType, ["jpg", "jpeg", "png", "gif"])) {
+        } elseif (!in_array($imageFileType, ["jpg", "png", "jpeg", "gif"])) {
             $error_message = "Apenas arquivos JPG, JPEG, PNG e GIF são permitidos.";
         } else {
             if (move_uploaded_file($foto["tmp_name"], $target_file)) {
-
-                $senha_hash = password_hash($_SESSION['cadastro_senha'], PASSWORD_BCRYPT);
-
-                $stmt = $conn->prepare(
-                    "INSERT INTO usuarios (username, senha, cargo, nome, nascimento, localizacao, foto) 
-                     VALUES (?, ?, ?, ?, ?, ?, ?)"
-                );
-
-                if ($stmt->execute([
-                    $_SESSION['cadastro_username'],
-                    $senha_hash,
-                    $_SESSION['cadastro_cargo'],
-                    $_SESSION['cadastro_nome'],
-                    $nascimento_formatado,
-                    $_SESSION['cadastro_localizacao'],
-                    $novo_nome
-                ])) {
-                    $_SESSION['user_id'] = $conn->lastInsertId();
+                
+                $stmt = $conn->prepare("INSERT INTO usuarios (username, senha, cargo, nome, nascimento, localizacao, foto) VALUES (?, ?, ?, ?, ?, ?, ?)");
+                $stmt->bind_param("sssssss", $_SESSION['cadastro_username'], $_SESSION['cadastro_senha'], $_SESSION['cadastro_cargo'], $_SESSION['cadastro_nome'], $_SESSION['cadastro_nascimento'], $_SESSION['cadastro_localizacao'], $target_file);
+                if ($stmt->execute()) {
+                    $success_message = "Foto enviada com sucesso! Cadastro concluído.";
+                    
+                    $_SESSION['user_id'] = $conn->insert_id;
                     $_SESSION['username'] = $_SESSION['cadastro_username'];
-
-                    unset(
-                        $_SESSION['cadastro_username'],
-                        $_SESSION['cadastro_senha'],
-                        $_SESSION['cadastro_cargo'],
-                        $_SESSION['cadastro_nome'],
-                        $_SESSION['cadastro_nascimento'],
-                        $_SESSION['cadastro_localizacao']
-                    );
-
+                    
+                    unset($_SESSION['cadastro_username'], $_SESSION['cadastro_senha'], $_SESSION['cadastro_cargo'], $_SESSION['cadastro_nome'], $_SESSION['cadastro_nascimento'], $_SESSION['cadastro_localizacao']);
                     header("Location: dashboard.php");
                     exit();
                 } else {
-                    $error_message = "Erro ao salvar usuário no banco!";
+                    $error_message = "Erro ao salvar dados: " . $conn->error;
                 }
+                $stmt->close();
             } else {
-                $error_message = "Erro ao fazer upload da imagem!";
+                $error_message = "Erro ao fazer upload da foto.";
             }
         }
     }
 }
 
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -83,8 +66,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro - Foto de Perfil</title>
-    <link rel="stylesheet" href="../style/combined.css">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="../style/cadastro4.css">
 </head>
 <body>
     <div>
@@ -98,11 +81,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </div>
     <div>
         <h2>Selecione uma foto de perfil.</h2>
-
-        <?php if (!empty($error_message)): ?>
+        <?php if ($success_message): ?>
+            <div class="success-message"><?php echo htmlspecialchars($success_message); ?></div>
+        <?php endif; ?>
+        <?php if ($error_message): ?>
             <div class="error-message"><?php echo htmlspecialchars($error_message); ?></div>
         <?php endif; ?>
-
         <form action="" method="post" enctype="multipart/form-data">
             <label for="foto">Foto de perfil:</label>
             <input type="file" id="foto" name="foto" accept="image/*" required>
@@ -112,7 +96,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </div>
         </form>
     </div>
-
     <script src="../script/script.js"></script>
 </body>
 </html>
