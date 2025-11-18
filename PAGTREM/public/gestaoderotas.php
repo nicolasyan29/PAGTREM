@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
 
     <title>Gestão de Rotas</title>
-    <link rel="stylesheet" href="../style/gestaoderotas.css">
+    <link rel="stylesheet" href="../style/combined.css">
 </head>
 <body>
     <div class="container">

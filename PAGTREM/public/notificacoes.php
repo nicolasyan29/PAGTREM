@@ -9,7 +9,7 @@ $alerta = "Comunicado importante!";
 <head>
     <meta charset="UTF-8">
     <title><?php echo $titulo; ?></title>
-    <link rel="stylesheet" href="../style/noticacoes.css">
+    <link rel="stylesheet" href="../style/combined.css">
 </head>
 <body>
     <div class="container">
