@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PagTrem Funcionários</title>
-    <link rel="stylesheet" href="../style/telainicial.css">
+    <link rel="stylesheet" href="../style/combined.css">
 </head>
 <body onclick="iniciarApp()">
     <div class="container">
