@@ -1,48 +1,50 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - PagTrem</title>
-    <link rel="stylesheet" href="../style/combined.css">
-</head>
-<body>
-    <div class="container">
+<?php
+session_start();
 
-        
-        <div class="icone-topo">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="white" viewBox="0 0 24 24">
-                <path d="M12 2c4.97 0 9 1.79 9 4v10c0 2.21-4.03 4-9 4s-9-1.79-9-4V6c0-2.21 4.03-4 9-4zm0 2c-3.87 0-7 .9-7 2s3.13 2 7 2 7-.9 7-2-3.13-2-7-2z"/>
-            </svg>
-        </div>
 
-        
-        <h2>Login</h2>
+$host = "localhost";
+$db   = "pagtrem";
+$user = "root";
+$pass = "";
 
-        
-        <label for="usuario">Usuário:</label>
-        <input type="text" id="usuario" name="usuario" placeholder="Digite aqui...">
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Erro na conexão: " . $e->getMessage());
+}
 
-        
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha" placeholder="Digite aqui...">
 
-        
-        <a href="redefinir_senha.php" class="link-esqueci">Esqueceu sua senha?</a>
+$erro = "";
 
-        
-        <div class="lembrar">
-            <label class="switch">
-                <input type="checkbox" id="lembrar">
-                <span class="slider"></span>
-            </label>
-            <span>Lembrar senha</span>
-        </div>
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $usuario = trim($_POST["usuario"]);
+    $senha   = trim($_POST["senha"]);
 
-        
-        <button type="submit">Fazer login</button>
+    if ($usuario === "" || $senha === "") {
+        $erro = "Preencha todos os campos.";
+    } else {
+       
+        $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE usuario = :usuario LIMIT 1");
+        $stmt->bindValue(":usuario", $usuario);
+        $stmt->execute();
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    </div>
+        if ($user && password_verify($senha, $user["senha"])) {
 
-</body>
-</html>
+            
+            if (!empty($_POST["lembrar"])) {
+                setcookie("usuario", $usuario, time() + 604800, "/");
+            }
+
+           
+            $_SESSION["user"] = $usuario;
+            header("Location: dashboard.php");
+            exit;
+        } else {
+            $erro = "Usuário ou senha inválidos.";
+        }
+  
+    }
+}
+?>
