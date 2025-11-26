@@ -7,9 +7,10 @@ header("Content-Type: text/html; charset=UTF-8");
 <head>
 
     <meta charset="UTF-8">
-    
+
     <title>PagTrem Funcionários</title>
     <link rel="stylesheet" href="../style/combined.css">
+
 </head>
 <body>
     <div class="container" onclick="iniciarApp()">

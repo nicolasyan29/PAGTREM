@@ -30,7 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <!DOCTYPE html>
 <html lang="pt-br">
-<head><meta charset="UTF-8"><title>Cadastro - Parte 2</title></head>
+<head><meta charset="UTF-8"><title>Cadastro - Parte 2</title><link rel="stylesheet" href="../style/combined.css">
+</head>
 <body>
     <form method="POST" enctype="multipart/form-data">
         <input type="text" name="local" placeholder="Localização" required><br>

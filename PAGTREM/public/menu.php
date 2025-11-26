@@ -12,7 +12,8 @@ $foto = $_SESSION["foto"] ?? "";
 
 <!DOCTYPE html>
 <html lang="pt-br">
-<head><meta charset="UTF-8"><title>Menu</title></head>
+<head><meta charset="UTF-8"><title>Menu</title><link rel="stylesheet" href="../style/combined.css">
+</head>
 <body>
     <h1>Bem-vindo, <?php echo $nome; ?>!</h1>
 

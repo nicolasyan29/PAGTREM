@@ -18,7 +18,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <!DOCTYPE html>
 <html lang="pt-br">
-<head><meta charset="UTF-8"><title>Login</title></head>
+<head><meta charset="UTF-8"><title>Login</title><link rel="stylesheet" href="../style/combined.css">
+</head>
 <body>
     <form method="POST">
         <input type="email" name="email" placeholder="E-mail" required><br>

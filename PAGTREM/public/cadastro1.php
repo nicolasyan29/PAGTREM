@@ -22,7 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <!DOCTYPE html>
 <html lang="pt-br">
-<head><meta charset="UTF-8"><title>Cadastro - Parte 1</title></head>
+<head><meta charset="UTF-8"><title>Cadastro - Parte 1</title><link rel="stylesheet" href="../style/combined.css">
+</head>
 <body>
     <form method="POST">
         <input type="text" name="nome" placeholder="Nome completo" required><br>
