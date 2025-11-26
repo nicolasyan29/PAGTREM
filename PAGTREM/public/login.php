@@ -1,34 +1,55 @@
 <?php
 session_start();
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $email = $_POST["email"];
-    $senha = $_POST["senha"];
+$erro = "";
 
-    
-    if ($email === "teste@teste.com" && $senha === "1234") {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $usuario = $_POST["usuario"];
+    $senha   = $_POST["senha"];
+
+   
+    if ($usuario === "admin" && $senha === "1234") {
         $_SESSION["logado"] = true;
         header("Location: menu.php");
         exit;
     } else {
-        $erro = "E-mail ou senha inválidos!";
+        $erro = "Usuário ou senha inválidos!";
     }
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
-<head><meta charset="UTF-8"><title>Login</title><link rel="stylesheet" href="../style/combined.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="../style/combined.css">
 </head>
 <body>
-    <form method="POST">
-        <input type="email" name="email" placeholder="E-mail" required><br>
-        <input type="password" name="senha" placeholder="Senha" required><br>
-        <button type="submit">Entrar</button>
-    </form>
 
-    <?php if(isset($erro)) echo "<p style='color:red;'>$erro</p>"; ?>
+    <div class="container">
 
-    <p><a href="cadastro1.php">Ainda não tem conta? Cadastre-se</a></p>
+        <h2>Login</h2>
+
+    
+        <?php if (!empty($erro)): ?>
+            <p style="color:red; text-align:center;"><?= $erro ?></p>
+        <?php endif; ?>
+
+        <form method="POST">
+
+            <label>Usuário:</label>
+            <input type="text" name="usuario" placeholder="Digite seu usuário" required>
+
+            <label>Senha:</label>
+            <input type="password" name="senha" placeholder="Digite sua senha" required>
+
+            <button type="submit">Entrar</button>
+        </form>
+
+        <p><a href="cadastro1.php">Ainda não tem conta? Cadastre-se</a></p>
+
+    </div>
+
 </body>
 </html>
