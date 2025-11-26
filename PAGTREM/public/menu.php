@@ -1,34 +1,25 @@
+<?php
+session_start();
+
+if (!isset($_SESSION["logado"]) && !isset($_SESSION["nome"])) {
+    header("Location: login.php");
+    exit;
+}
+
+$nome = $_SESSION["nome"] ?? "Usuário";
+$foto = $_SESSION["foto"] ?? "";
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Menu</title>
-    <link rel="stylesheet" href="../style/combined.css">
-</head>
+<head><meta charset="UTF-8"><title>Menu</title></head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">
-            </div>
-            <h1>MENU</h1>
-        </header>
+    <h1>Bem-vindo, <?php echo $nome; ?>!</h1>
 
-        <nav class="menu">
-            <a href="#" class="btn">Dashboard</a>
-            <a href="#" class="btn">Gestão de Rotas</a>
-            <a href="#" class="btn">Relatórios e Análises</a>
-            <a href="#" class="btn notification">
-                Notificações
-                <span class="dot"></span>
-            </a>
-            <a href="#" class="btn">Monitoramento de Manutenções</a>
-        </nav>
+    <?php if($foto !== ""): ?>
+        <img src="uploads/<?php echo $foto; ?>" width="150">
+    <?php endif; ?>
 
-        <footer class="nav-footer">
-            <span class="nav-icon">⬅️</span>
-            <span class="nav-icon">🏠</span>
-            <span class="nav-icon">➡️</span>
-        </footer>
-    </div>
+    <p>Menu principal do app</p>
 </body>
 </html>
