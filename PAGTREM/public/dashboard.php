@@ -45,7 +45,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="../style/dashboard.css">
+    <link rel="stylesheet" href="../style/combined.css">
 </head>
 <body>
     <div class="dashboard">
