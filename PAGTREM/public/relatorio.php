@@ -17,18 +17,13 @@ if (!isset($_SESSION["logado"])) {
 
 <div class="container">
 
-    <h2>Relatórios do Sistema</h2>
+    <h2>Relatórios</h2>
 
-    <p>
-        Nesta seção você pode visualizar, gerar e analisar relatórios sobre o funcionamento
-        do sistema PagTrem, incluindo dados de usuários, rotas, viagens realizadas,
-        movimentações registradas e desempenho geral.
-    </p>
+    <p>A linha 4 está sendo feita pelos novos trens em menos de 1 hora da primeira à última parada.</p>
 
-    <p>
-        Utilize esta área para acompanhar estatísticas, exportar informações e monitorar
-        indicadores importantes para a operação.
-    </p>
+    <p>Cada viagem do começo ao fim está gastando R$ 200,00 em combustível.</p>
+
+    <p>Os trens estão economizando R$ 50,00 a mais comparado ao ano passado.</p>
 
     <br>
 
