@@ -16,7 +16,7 @@ header("Content-Type: text/html; charset=UTF-8");
     <div class="container" onclick="iniciarApp()">
         <h1>PagTrem</h1>
         <h2>Funcionários</h2>
-        <p>Clique na tela para iniciar</p>
+        <p>Clique em qualquer luga na tela para iniciar</p>
     </div>
 
     <script>
