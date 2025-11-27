@@ -9,15 +9,15 @@ header("Content-Type: text/html; charset=UTF-8");
     <meta charset="UTF-8">
 
     <title>PagTrem Funcionários</title>
-    <img src="iconetrem.png" alt="Descrição da imagem">
     <link rel="stylesheet" href="../style/combined.css">
 
 </head>
 <body>
     <div class="container" onclick="iniciarApp()">
+        <img src="../imagens/iconetrem.png" alt="Ícone do trem">
         <h1>PagTrem</h1>
         <h2>Funcionários</h2>
-        <p>Clique em qualquer luga na tela para iniciar</p>
+        <p>Clique em qualquer lugar na tela para iniciar</p>
     </div>
 
     <script>
