@@ -14,7 +14,7 @@ header("Content-Type: text/html; charset=UTF-8");
 </head>
 <body>
     <div class="container" onclick="iniciarApp()">
-        <img src="../imagens/iconetrem_preto.png" alt="Ícone do trem">
+        <img src="../imagens/iconetrem_preto.png" alt="Ícone do trem preto">
         <h1>PagTrem</h1>
         <h2>Funcionários</h2>
         <p>Clique em qualquer lugar na tela para iniciar</p>
