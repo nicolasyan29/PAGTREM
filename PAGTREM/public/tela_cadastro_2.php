@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Cadastro - Parte 2</title>
-    <link rel="stylesheet" href="../style/combined.css">
+    <link rel="stylesheet" href="../style/style.css">
 </head>
 <body>
 
