@@ -16,6 +16,7 @@ body {
     justify-content: center;
     align-items: center; /* Centraliza o conteúdo principal verticalmente no desktop */
     min-height: 100vh;
+   
 }
 
 /* Containers de Formulário e Telas Simples */
@@ -61,7 +62,7 @@ body {
     box-sizing: border-box;
 }
 
-/* --- Estilos Comuns de Formulário --- */
+/* cadastro 2*/
 form {
     display: flex;
     flex-direction: column;
@@ -83,7 +84,7 @@ input[type="date"] {
 }
 
 button[type="submit"], .menu .btn, .dashboard .btn {
-    background-color: #007bff;
+    background-color: #14171b;
     color: white;
     padding: 15px;
     border: none;
