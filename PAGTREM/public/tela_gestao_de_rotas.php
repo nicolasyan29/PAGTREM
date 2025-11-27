@@ -13,7 +13,7 @@ if (!isset($_SESSION["logado"])) {
     <meta charset="UTF-8">
 
     <title>Gestão de Rotas</title>
-    <link rel="stylesheet" href="../style/combined.css">
+    <link rel="stylesheet" href="../style/style.css">
 </head>
 <body>
 

@@ -10,7 +10,7 @@ if (!isset($_SESSION["logado"])) {
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="../style/combined.css">
+    <link rel="stylesheet" href="../style/style.css">
 </head>
 <body>
 
