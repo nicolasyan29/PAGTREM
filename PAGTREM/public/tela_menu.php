@@ -22,16 +22,18 @@ if (!isset($_SESSION["logado"])) {
 <div class="container">
     <h2>Menu Principal</h2>
 
-    <button onclick="window.location.href='dashboard.php'">📊 Ir para Dashboard</button>
+    <button onclick="window.location.href='tela_dashboard.php'">📊 Ir para Dashboard</button>
     <br><br>
 
-    <button onclick="window.location.href='gestaoderotas.php'">🛤️ Gestão de Rotas</button>
+    <button onclick="window.location.href='tela_gestao_de_rotas.php'">🛤️ Gestão de Rotas</button>
     <br><br>
 
-    <button onclick="window.location.href='relatorio.php'">📑 Relatórios</button>
+    <button onclick="window.location.href='tela_relatorio.php'">📑 Relatórios</button>
     <br><br>
 
-    <button onclick="window.location.href='notificacoes.php'">🔔 Notificações</button>
+    <button onclick="window.location.href='tela_notificacoes.php'">🔔 Notificações</button>
+
+     <button onclick="window.location.href='tela_menu.php'">🔔 Notificações</button>
 </div>
 
 </body>
