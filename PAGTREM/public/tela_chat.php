@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['message'])) {
         $stmt->execute();
         $stmt->close();
         
-        header("Location: chat.php");
+        header("Location: tela_chat.php");
         exit();
     }
 }

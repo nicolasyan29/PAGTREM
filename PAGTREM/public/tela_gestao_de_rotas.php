@@ -20,8 +20,8 @@ if (!isset($_SESSION["logado"])) {
 <div class="container">
     <h2>Gestão de Rotas</h2>
 
-    <button onclick="window.location.href='relatorio.php'">Ir para Relatório</button><br><br>
-    <button onclick="window.location.href='dashboard.php'">Voltar ao Dashboard</button>
+    <button onclick="window.location.href='tela_relatorio.php'">Ir para Relatório</button><br><br>
+    <button onclick="window.location.href='tela_dashboard.php'">Voltar ao Dashboard</button>
 </div>
 
 </body>

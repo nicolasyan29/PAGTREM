@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION["logado"])) {
-    header("Location: login.php");
+    header("Location: tela_login.php");
     exit;
 }
 ?>
@@ -28,8 +28,8 @@ if (!isset($_SESSION["logado"])) {
 
     <br>
 
-    <button onclick="window.location.href='notificacoes.php'">Ir para Notificações</button><br><br>
-    <button onclick="window.location.href='gestaoderotas.php'">Voltar à Gestão de Rotas</button>
+    <button onclick="window.location.href='tela_notificacoes.php'">Ir para Notificações</button><br><br>
+    <button onclick="window.location.href='tela_gestao_de_rotas.php'">Voltar à Gestão de Rotas</button>
 
 </div>
 

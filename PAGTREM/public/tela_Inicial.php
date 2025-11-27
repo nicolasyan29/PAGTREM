@@ -22,7 +22,7 @@ header("Content-Type: text/html; charset=UTF-8");
 
     <script>
         function iniciarApp() {
-            window.location.href = "login.php";
+            window.location.href = "tela_login.php";
         }
     </script>
 </body>

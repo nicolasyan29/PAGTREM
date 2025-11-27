@@ -3,7 +3,7 @@ session_start();
 
 
 if (!isset($_SESSION["logado"])) {
-    header("Location: login.php");
+    header("Location: tela_login.php");
     exit;
 }
 

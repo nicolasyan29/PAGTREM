@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         
         $_SESSION["foto"] = null;
 
-        header("Location: menu.php");
+        header("Location: tela_menu.php");
         exit;
     }
 }

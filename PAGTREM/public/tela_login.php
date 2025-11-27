@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <button type="submit">Entrar</button>
         </form>
 
-        <p><a href="cadastro1.php">Ainda não tem conta? Cadastre-se</a></p>
+        <p><a href="tela_cadastro_1.php">Ainda não tem conta? Cadastre-se</a></p>
 
     </div>
 

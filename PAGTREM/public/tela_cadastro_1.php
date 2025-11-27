@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     else {
         $_SESSION["nome"] = $nome;
         $_SESSION["nasc"] = $nasc;
-        header("Location: cadastro2.php");
+        header("Location: tela_cadastro_2.php");
         exit;
     }
 }
