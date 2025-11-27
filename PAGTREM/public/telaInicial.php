@@ -10,6 +10,7 @@ header("Content-Type: text/html; charset=UTF-8");
 
     <title>PagTrem Funcionários</title>
     <link rel="stylesheet" href="../style/combined.css">
+    <img src="../iconetrem_preto.png" alt="Uma foto minha">
 
 </head>
 <body>
