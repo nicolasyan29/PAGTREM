@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
@@ -37,8 +36,6 @@ try {
     error_log("Erro ao contar registros: " . $e->getMessage());
     $user_count = $sensor_count = $route_count = 0;
 }
-=======
->>>>>>> be4b6748499511ca8b3106f2f0413802c5011563
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
