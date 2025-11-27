@@ -20,6 +20,7 @@ body {
 }
 
 /* Containers de Formulário e Telas Simples */
+/* Used in: tela_cadastro_1.php, tela_cadastro_2.php, tela_chat.php, tela_dashboard.php, tela_gestao_de_rotas.php, tela_Inicial.php, tela_login.php, tela_menu.php, tela_monitoramento.php, tela_notificacoes.php, tela_relatorio.php, tela_usuarios.php */
 .container {
     background-color: #fff;
     padding: 40px;
@@ -27,7 +28,7 @@ body {
     border-radius: 12px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     width: 90%;
-    max-width: 500px; 
+    max-width: 500px;
     text-align: center;
     box-sizing: border-box;
 }
@@ -48,6 +49,7 @@ body {
 }
 
 /* Container de Aplicações Grandes (relatorio.php, monitoramento.php, dashboard.php) */
+/* Used in: tela_chat.php (phone) */
 .app, .dashboard, .phone {
     width: 90%;
     max-width: 1200px;
@@ -291,7 +293,10 @@ th, td {
     }
     /* --- Estilos para a Tela de Perfil (perfil.php) --- */
 
+/* --- Estilos para a Tela de Perfil (tela_usuarios.php) --- */
+
 /* Estilo para a imagem de Perfil */
+/* Used in: tela_usuarios.php */
 .profile-picture {
     width: 150px;
     height: 150px;
@@ -304,6 +309,7 @@ th, td {
 }
 
 /* Container do Input File */
+/* Used in: tela_usuarios.php */
 .file-upload-wrapper {
     position: relative;
     overflow: hidden; /* Esconde o input file nativo */
@@ -314,6 +320,7 @@ th, td {
 }
 
 /* Botão que simula o upload */
+/* Used in: tela_usuarios.php */
 .upload-btn {
     display: block;
     width: 100%;
@@ -332,6 +339,7 @@ th, td {
 }
 
 /* Esconde o input file padrão, mas mantém sua funcionalidade */
+/* Used in: tela_usuarios.php */
 .file-upload-wrapper input[type="file"] {
     position: absolute;
     top: 0;
