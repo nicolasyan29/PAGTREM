@@ -13,13 +13,13 @@ if (!isset($_SESSION["logado"])) {
     <link rel="stylesheet" href="../style/combined.css">
 </head>
 <body>
-    
+
 
 <div class="container">
     <h2>Dashboard</h2>
 
-    <button onclick="window.location.href='gestaoderotas.php'">Ir para Gestão de Rotas</button>
-    <p><a href="menu.php">Voltar ao Menu</a></p>
+    <button onclick="window.location.href='gestaoderotas.php'">Ir para Gestão de Rotas</button><br><br>
+    <button onclick="window.location.href='menu.php'">Voltar ao Menu</button>
 </div>
 
 </body>

@@ -9,8 +9,9 @@ if (!isset($_SESSION["logado"])) {
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+
     <meta charset="UTF-8">
-    
+
     <title>Gestão de Rotas</title>
     <link rel="stylesheet" href="../style/combined.css">
 </head>
@@ -19,8 +20,8 @@ if (!isset($_SESSION["logado"])) {
 <div class="container">
     <h2>Gestão de Rotas</h2>
 
-    <button onclick="window.location.href='relatorio.php'">Ir para Relatório</button>
-    <p><a href="dashboard.php">Voltar ao Dashboard</a></p>
+    <button onclick="window.location.href='relatorio.php'">Ir para Relatório</button><br><br>
+    <button onclick="window.location.href='dashboard.php'">Voltar ao Dashboard</button>
 </div>
 
 </body>

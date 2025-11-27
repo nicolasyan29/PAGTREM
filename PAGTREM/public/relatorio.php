@@ -19,6 +19,7 @@ if (!isset($_SESSION["logado"])) {
 
     <h2>Relatórios</h2>
 
+
     <p>A linha 4 está sendo feita pelos novos trens em menos de 1 hora da primeira à última parada.</p>
 
     <p>Cada viagem do começo ao fim está gastando R$ 200,00 em combustível.</p>
@@ -27,10 +28,8 @@ if (!isset($_SESSION["logado"])) {
 
     <br>
 
-    <button onclick="window.location.href='notificacoes.php'">Ir para Notificações</button>
-    <br><br>
-
-    <button onclick="window.location.href='menu.php'">Voltar ao Menu</button>
+    <button onclick="window.location.href='notificacoes.php'">Ir para Notificações</button><br><br>
+    <button onclick="window.location.href='gestaoderotas.php'">Voltar à Gestão de Rotas</button>
 
 </div>
 

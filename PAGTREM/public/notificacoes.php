@@ -27,7 +27,7 @@ if (!isset($_SESSION["logado"])) {
 
     <br>
 
-    <button onclick="window.location.href='menu.php'">Voltar ao Menu</button>
+    <button onclick="window.location.href='relatorio.php'">Voltar ao Relatório</button>
 
 </div>
 
