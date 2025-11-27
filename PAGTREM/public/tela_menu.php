@@ -33,7 +33,7 @@ if (!isset($_SESSION["logado"])) {
 
     <button onclick="window.location.href='tela_notificacoes.php'">🔔 Notificações</button>
 
-     <button onclick="window.location.href='tela_menu.php'">🔔 Notificações</button>
+     <button onclick="window.location.href='tela_usuarios.php'">🔔 Usuarios</button>
 </div>
 
 </body>
