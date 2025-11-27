@@ -81,7 +81,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <title>Meu Perfil</title>
-    <link rel="stylesheet" href="../style/combined.css">
+    <link rel="stylesheet" href="../style/style.css">
     <style>
         .back-icon {
             position: absolute;
