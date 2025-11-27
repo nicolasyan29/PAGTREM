@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
 
     <div class="container">
-        <img src="../iconetrem_preto.png" alt="icone trem preto">
+        <img src="../imagens/iconetrem_preto.png" alt="icone trem preto">
 
         <h2>Login</h2>
 
