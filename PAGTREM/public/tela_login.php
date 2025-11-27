@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
    
     if ($usuario === "admin" && $senha === "1234") {
         $_SESSION["logado"] = true;
-        header("Location: menu.php");
+        header("Location: tela_menu.php");
         exit;
     } else {
         $erro = "Usuário ou senha inválidos!";
