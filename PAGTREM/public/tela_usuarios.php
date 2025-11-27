@@ -1,38 +1,27 @@
 <?php
 session_start();
 
-// O login.php original não define 'user_id'. Para que esta tela funcione:
-// 1. O login.php DEVE ser atualizado para buscar o 'pk' do usuário no DB e definir $_SESSION['user_id'].
-// 2. Por enquanto, se 'user_id' não estiver definido, usaremos o ID 1 para o exemplo.
+
 $user_id = $_SESSION['user_id'] ?? 1;
 
 if (!isset($_SESSION['logado']) && $user_id === 1) {
-    // Se não está logado E não estamos usando o fallback ID 1, redireciona.
-    // NOTE: Se o login.php fosse completo, bastaria checar !isset($_SESSION['user_id'])
-    // header("Location: login.php");
-    // exit();
 }
 
-// Inclui a conexão PDO aprimorada
 include '../config/db.php';
 
 $message = "";
 
-// ======================================================
-// 1. Lógica de Atualização (POST)
-// ======================================================
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $nome = trim($_POST['nome']);
     $localizacao = trim($_POST['localizacao']);
     $nascimento = $_POST['nascimento'];
-    $foto_name = $_POST['foto_atual']; // Nome da foto atual, se não for alterada
+    $foto_name = $_POST['foto_atual']; 
 
     try {
-        // --- Lógica de Upload de Foto ---
         if (isset($_FILES['nova_foto']) && $_FILES['nova_foto']['error'] === UPLOAD_ERR_OK) {
             $upload_dir = 'uploads/';
             
-            // Cria a pasta se não existir
             if (!is_dir($upload_dir)) {
                 mkdir($upload_dir, 0777, true);
             }
@@ -42,7 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $allowed_ext = ['jpg', 'jpeg', 'png', 'gif'];
 
             if (in_array($extensao, $allowed_ext)) {
-                // Cria um nome de arquivo único (ex: user_1_timestamp.jpg)
                 $foto_name = 'user_' . $user_id . '_' . time() . '.' . $extensao;
                 $upload_path = $upload_dir . $foto_name;
 
@@ -50,14 +38,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     $message = "Foto atualizada com sucesso. ";
                 } else {
                     $message .= "Erro ao mover arquivo. ";
-                    $foto_name = $_POST['foto_atual']; // Mantém a foto antiga em caso de falha
+                    $foto_name = $_POST['foto_atual']; 
                 }
             } else {
                 $message .= "Formato de arquivo não permitido. ";
             }
         }
 
-        // --- Lógica de Atualização de Dados ---
         $sql = "UPDATE usuarios SET nome = ?, nascimento = ?, localizacao = ?, foto = ? WHERE pk = ?";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$nome, $nascimento, $localizacao, $foto_name, $user_id]);
@@ -74,9 +61,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 
-// ======================================================
-// 2. Busca de Dados para Exibição
-// ======================================================
 try {
     $sql = "SELECT nome, username, nascimento, localizacao, foto FROM usuarios WHERE pk = ?";
     $stmt = $conn->prepare($sql);
