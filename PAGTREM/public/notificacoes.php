@@ -1,26 +1,25 @@
 <?php
-$titulo = "Notificações";
-$icone = "🚆"; 
-$mensagem = "Informamos que um trem apresentou falha técnica na Linha Norte, próximo ao bairro Jardim das Flores. A equipe de manutenção já foi acionada e está atuando para resolver o problema o mais rápido possível.";
-$alerta = "Comunicado importante!";
+session_start();
+if (!isset($_SESSION["logado"])) {
+    header("Location: login.php");
+    exit;
+}
 ?>
+
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title><?php echo $titulo; ?></title>
+    <title>Notificações</title>
     <link rel="stylesheet" href="../style/combined.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <span class="icone"><?php echo $icone; ?></span>
-            <h1><?php echo $titulo; ?></h1>
-        </header>
-        <div class="box">
-            <p><?php echo $mensagem; ?></p>
-            <strong><?php echo $alerta; ?></strong>
-        </div>
-    </div>
+
+<div class="container">
+    <h2>Notificações</h2>
+
+    <button onclick="window.location.href='menu.php'">Voltar ao Menu</button>
+</div>
+
 </body>
 </html>
