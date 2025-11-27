@@ -1,53 +1,4 @@
  
-/* cadastro1.css */ 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #0d1a33;
-  color: white;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  padding: 20px;
-  display: block;
-}
-
-.hidden {
-  display: none;
-}
-
-input, select {
-  display: block;
-  width: 80%;
-  margin: 10px auto;
-  padding: 10px;
-  border-radius: 20px;
-  border: none;
-}
-
-button {
-  background-color: white;
-  color: #0d1a33;
-  padding: 10px 20px;
-  margin: 20px 10px;
-  border-radius: 50px;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-}
-
-button:hover {
-  background-color: #ccc;
-}
-
-.nav {
-  margin-top: 20px;
-}
- 
-
-
  
 /* dashboard.css */ 
 body {
@@ -141,604 +92,351 @@ body {
 } 
 
 
-/* gestaoderotas.css */ 
+ /*
+ * ========================================
+ * 1. Estilos Base (Celular - Mobile First)
+ * ========================================
+ */
 body {
-    margin: 0;
+
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8; /* Cor de fundo mais suave */
+    color: #333;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; 
     min-height: 100vh;
-    background-color: #0d1a38;
-    color: white;
+    
 }
 
-.container {
+/* Estilo para Telas de Início, Login, Cadastro, Notificações e Gestão de Rotas */
+.container, .app {
+    background-color: #fff;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 90%; 
+    max-width: 450px; /* Limite máximo para formulários e telas simples */
+    text-align: center;
+    box-sizing: border-box;
+
+}
+
+/* --- Estilos de Formulário (login.php, cadastro1.php, cadastro2.php) --- */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+    text-align: left;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"] {
     width: 100%;
-    height: 100%;
-    max-width: none;
-    min-height: unset;
-    background-color: #0d1a38;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box; 
+    font-size: 16px;
+}
+
+button[type="submit"] {
+
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+}
+
+/* --- Estilo da Tela Inicial (telaInicial.php) --- */
+.container img {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 15px;
+
+}
+
+/* --- Estilos de Menu (menu.php) --- */
+.container h1 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.container p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Imagem de perfil do menu.php */
+.container img[width="150"] {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Faz a imagem ser circular */
+    object-fit: cover;
+    margin: 15px 0;
+    border: 3px solid #007bff;
+}
+
+/* --- Estilos para Notificações (notificacoes.php) --- */
+.container header {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.icone {
+    font-size: 2.5em;
+    margin-right: 10px;
+}
+
+.box {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 5px solid #ffc107; /* Alerta visual */
+    text-align: left;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.box strong {
+    display: block;
+    margin-top: 10px;
+    color: #dc3545;
+    font-size: 1.1em;
+}
+
+/* --- Estilos para Gestão de Rotas (gestaoderotas.php) --- */
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.menu .btn {
+    text-decoration: none;
+    background-color: #28a745;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.menu .btn:hover {
+    background-color: #1e7e34;
+}
+
+.nav-footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.nav-icon {
+    font-size: 1.8em;
+    cursor: pointer;
+
+}
+
+/* --- Estilos para Relatórios (relatorio.php) --- */
+.app {
+    width: 100%;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
     border-radius: 0;
     box-shadow: none;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    box-sizing: border-box;
-    position: relative;
-    overflow: hidden;
+    max-width: none;
 }
 
-.logo {
-    width: 100%;
-    text-align: left;
-    padding-bottom: 10px;
-    box-sizing: border-box;
-}
-
-.logo img {
-    width: 40px;
-    height: 40px;
-    margin-right: 0;
-    display: block;
-    margin-left: 0;
-}
-
-.content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex-grow: 1;
-    width: 100%;
-    padding: 0 10px;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-}
-
-.content h1 {
-    font-size: 2.2em;
-    margin-bottom: 30px;
+.topbar {
+    background-color: #007bff;
     color: white;
-    text-align: center;
-    width: 100%;
-}
-
-.buttons {
+    padding: 15px 20px;
     display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 100%;
-    max-width: 280px;
-    margin: 0 auto;
-}
-
-.btn {
-    background-color: white;
-    color: #0d1a38;
-    border: none;
-    padding: 18px 20px;
-    border-radius: 25px;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    width: 100%;
-    text-align: center;
-    font-weight: 600;
-    letter-spacing: 0.2px;
+    align-items: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.btn:hover {
-    background-color: #e6e6e6;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+.topbar .icon {
+    font-size: 1.5em;
+    margin-right: 10px;
 }
 
-.btn:active {
-    transform: translateY(0);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.footer-navigation {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding-top: 15px;
-    box-sizing: border-box;
-}
-
-.footer-navigation i {
-    font-size: 2em;
-    color: white;
-    cursor: pointer;
-    transition: color 0.2s ease;
-}
-
-.footer-navigation i:hover {
-    color: #cccccc;
-}
-
-/* New styles for dynamic content */
-.section {
-    width: 100%;
-    max-width: 300px;
-    margin: 20px auto;
-    padding: 15px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    color: white;
-}
-
-.section h2 {
-    margin-top: 0;
-    color: white;
-}
-
-.section form {
+.content {
+    flex-grow: 1;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
 }
 
-.section input, .section textarea, .section select {
-    padding: 10px;
+.card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    border-left: 4px solid #007bff;
+}
+
+.bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    background-color: white;
+    border-top: 1px solid #eee;
+    width: 100%;
+    position: sticky; /* Fixa a navegação na parte inferior */
+    bottom: 0;
+}
+
+.nav-btn {
+    background: none;
     border: none;
-    border-radius: 5px;
-    font-size: 1em;
+    color: #6c757d;
+    padding: 10px;
+    cursor: pointer;
+    transition: color 0.3s;
 }
 
-.section button {
+.nav-btn.active, .nav-btn:hover {
+    color: #007bff;
+}
+
+.nav-btn svg {
+    display: block;
+}
+
+/* --- Estilos para Monitoramento (monitoramento.php) --- */
+/* (Manter estilos de tabela, se existirem na versão anterior, senão, usar os abaixo) */
+.header {
+    background-color: #0056b3;
+    color: white;
+    padding: 10px;
+    border-radius: 8px 8px 0 0;
+    margin: -20px -20px 20px -20px; /* Expande para preencher o topo do container */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    overflow-x: auto; 
+    display: block; 
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    white-space: nowrap; 
+}
+
+thead {
     background-color: #007bff;
     color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
 }
 
-.section button:hover {
-    background-color: #0056b3;
-}
-
-.section ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.section li {
-    margin-bottom: 15px;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-}
-
-.section li form {
-    display: inline;
-    margin-left: 10px;
-}
- 
-
-/* menu.css */ 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #0b1c36; 
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
-    overflow-y: auto;
-}
-
-.app-container {
-    width: 375px; 
-    max-height: 812px; 
-    background-color: #0b1c36;
-    border-radius: 30px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    margin: 20px 0;
-}
-
-.header {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
-    padding: 20px;
-    color: white;
-    position: relative; 
-}
-
-.header .icon-left {
-    font-size: 28px;
+/*
+ * ========================================
+ * 2. Media Queries (Desktop e Tablets)
+ * ========================================
+ */
+@media (min-width: 768px) {
     
-}
-
-.header .header-title {
-    font-size: 24px; 
-    font-weight: bold;
-    flex-grow: 1; 
-    text-align: center; 
-    
-    margin-right: 28px; 
-}
-
-
-.menu-items-container {
-    flex-grow: 1; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-    align-items: center; 
-    padding: 20px;
-    gap: 15px; 
-}
-
-.menu-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 90%; 
-    max-width: 300px; 
-    padding: 15px 20px;
-    background-color: white;
-    color: #0b1c36; 
-    border-radius: 10px;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: 500;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
-    position: relative; 
-}
-.menu-item:hover {
-    transform: translateY(-3px);
-    background-color: #e0e0e0; 
-    cursor: pointer;
-}
-
-.menu-item .badge {
-    position: absolute;
-    top: 5px; 
-    right: 15px; 
-    background-color: #ff4d4d; 
-    color: white;
-    border-radius: 50%;
-    padding: 3px 8px;
-    font-size: 13px;
-    min-width: 10px; 
-    text-align: center;
-    line-height: 1.2; 
-    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    display: none; 
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #0d213f; 
-    padding: 15px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: white;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.navbar .nav-icon {
-    font-size: 28px;
-    color: #8c9cb6;
-    cursor: pointer;
-    transition: color 0.2s ease-in-out;
-}
-
-.navbar .nav-icon:hover {
-    color: #ffffff;
-}
-
-.navbar .nav-icon.active {
-    color: white;
-    text-shadow: 0 0 10px rgba(255,255,255,0.5);
-} 
-
-/* notificacoes.css */ 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #0d1a33; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    color: #fff;
-}
-
-.logo img {
-    width: 40px; 
-    height: 40px;
-    margin-right: 15px;
-    align-items: left;
-}
-
-
-.notification-container {
-    width: 100%;
-    max-width: 400px; 
-    height: 80vh; 
-    background-color: #0d1a2f;
-    display: flex;
-    flex-direction: column;
-    border-radius: 15px;
-    overflow: hidden;
-    
-}
-
-.notification-header {
-    background-color: #0d1a2f;
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    
-}
-
-.header-icon {
-    position: absolute;
-    left: 15px;
-    font-size: 24px;
-    color: #fff;
-}
-
-.notification-title {
-    margin: 0;
-    font-size: 20px;
-    font-weight: bold;
-    color: #fff;
-}
-
-.notification-main {
-    flex-grow: 1;
-    padding: 20px;
-    display: flex;
-    justify-content: center; 
-    align-items: flex-start; 
-    overflow-y: auto;
-}
-
-.notification-card {
-    background-color: #fff;
-    color: #000;
-    padding: 25px;
-    border-radius: 15px;
-    text-align: center;
-    max-width: 90%; 
-    line-height: 1.5;
-    font-size: 16px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    position: relative;
-    margin-top: 20px; 
-}
-
-.notification-card p {
-    margin: 0 0 15px 0; 
-}
-
-.notification-card p:last-of-type {
-    margin-bottom: 0;
-}
-
-.highlight-fail {
-    color: rgb(0, 0, 0);
-    font-weight: bold;
-}
-
-.arrow-up {
-    width: 0;
-    height: 0;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    border-bottom: 15px solid #000; 
-    position: absolute;
-    bottom: 50px; 
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-
-.important-communication {
-    font-weight: bold;
-    margin-top: 25px; 
-}
-
-.notification-footer {
-    background-color: #0d1a2f;
-    padding: 15px;
-    
-}
-
-.footer-nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.nav-icon {
-    color: #fff;
-    font-size: 24px;
-    text-decoration: none;
-    padding: 5px 10px;
-} 
-
- 
-/* relatorio.css */ 
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-    background-color: #0d1a3c; 
-    color: white; 
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; 
-    align-items: center; 
-    justify-content: center; 
-}
-
-.phone-mockup {
-    background-color: black; 
-    width: 375px; 
-    height: 812px; 
-    border-radius: 40px; 
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); 
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    position: relative; 
-    border: 10px solid #222; 
-}
-
-
-.phone-mockup::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 150px;
-    height: 25px;
-    background-color: black;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    z-index: 10;
-}
-
-
-
-.phone-screen-content {
-    flex-grow: 1; 
-    background-color: #000040;
-    display: flex;
-    flex-direction: column;
-    padding-top: 30px; 
-}
-
-
-
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 0;
-    font-size: 1.6em; 
-    font-weight: bold;
-    text-align: center;
-}
-
-.header .train-icon {
-   width: 40px; 
-    height: 40px;
-    margin-right: 15px;
-}
-
-
-.reports-container {
-    flex-grow: 1;
-    padding: 15px; 
-    display: flex;
-    flex-direction: column;
-    gap: 15px; 
-    overflow-y: auto; 
-    -webkit-overflow-scrolling: touch; 
-}
-
-
-.report-card {
-    background-color: white;
-    color: #000040; 
-    padding: 18px;
-    border-radius: 18px; 
-    text-align: center;
-    font-size: 1em;
-    line-height: 1.4;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15); 
-}
-
-
-.navigation-bar {
-    background-color: #000040; 
-    padding: 15px 0;
-    display: flex;
-    justify-content: space-around; 
-    align-items: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.1); 
-    height: 60px; 
-}
-
-.navigation-icon {
-    font-size: 2.2em; 
-    color: white;
-    cursor: pointer; 
-    transition: color 0.2s ease-in-out; 
-}
-
-.navigation-icon:hover {
-    color: #ADD8E6; 
-}
-
-
-@media (max-width: 768px) {
     body {
-        justify-content: flex-start; 
+        align-items: center; /* Centraliza verticalmente o conteúdo principal */
+        padding-top: 50px; /* Adiciona um pequeno padding superior */
     }
 
-    .phone-mockup {
-        width: 100%;
-        height: 100vh; 
-        border-radius: 0; 
-        box-shadow: none; 
-        border: none; 
+    .container, .app {
+        margin: auto;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra mais destacada */
     }
 
-    .phone-mockup::before {
-        display: none;
+    /* Ajustes para formulários e telas simples */
+    .container {
+        max-width: 480px; 
+        padding: 40px;
+    }
+    
+    /* Ajustes para Relatórios (relatorio.php) */
+    .app {
+        max-width: 1000px; /* Largura maior para desktop */
+        min-height: 80vh;
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .content {
+        flex-direction: row; /* Layout de cards lado a lado */
+        flex-wrap: wrap; /* Quebra os cards se não couberem */
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .card {
+        flex-basis: calc(33% - 20px); /* Ocupa cerca de 1/3 da largura */
+        min-width: 250px;
+    }
+    
+    .bottom-nav {
+        display: none; /* Oculta a navegação de rodapé em desktop */
+        position: static;
     }
 
-    .phone-screen-content {
-        padding-top: 0;
+    /* Tabela de Monitoramento */
+    table {
+        margin: 20px 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        display: table; /* Volta ao display padrão de tabela */
+    }
+    
+    th, td {
+        padding: 12px 15px;
+    }
+    
+    /* Gestão de Rotas - Layout de menu em linha para desktop */
+    .gestao-rotas .menu {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
     }
 
-    .header {
-        font-size: 1.5em;
-        padding: 15px 0;
+    .gestao-rotas .menu .btn {
+        flex-basis: 30%; /* Distribui os botões na linha */
+        padding: 12px 10px;
     }
 
-    .reports-container {
-        padding: 10px;
-        gap: 10px;
-    }
-
-    .report-card {
-        padding: 15px;
-        border-radius: 15px;
-        font-size: 0.95em;
-    }
-
-    .navigation-bar {
-        height: 55px;
-        padding: 10px 0;
-    }
-
-    .navigation-icon {
-        font-size: 2em;
+    .nav-footer {
+        display: none; /* Oculta a navegação de rodapé em desktop */
     }
 }
 
