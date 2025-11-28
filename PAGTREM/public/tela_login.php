@@ -1,56 +1,73 @@
 <?php
+// login.php
+
+// 1) Conexão
+$mysqli = new mysqli("localhost", "root", "", "login_db");
+if ($mysqli->connect_errno) {
+    die("Erro de conexão: " . $mysqli->connect_error);
+}
+
 session_start();
 
-$erro = "";
+// 2) Logout
+if (isset($_GET['logout'])) {
+    session_destroy();
+    header("Location: login.php");
+    exit;
+}
 
+// 3) Login
+$msg = "";
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $usuario = $_POST["usuario"];
-    $senha   = $_POST["senha"];
+    $user = $_POST["username"] ?? "";
+    $pass = $_POST["password"] ?? "";
 
-   
-    if ($usuario === "admin" && $senha === "1234") {
-        $_SESSION["logado"] = true;
-        header("Location: tela_menu.php");
+    $stmt = $mysqli->prepare("SELECT id, username, senha FROM usuarios WHERE username=? AND senha=?");
+    $stmt->bind_param("ss", $user, $pass);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $dados = $result->fetch_assoc();
+    $stmt->close();
+
+    if ($dados) {
+        $_SESSION["user_id"] = $dados["id"];
+        $_SESSION["username"] = $dados["username"];
+        header("Location: login.php");
         exit;
     } else {
-        $erro = "Usuário ou senha inválidos!";
+        $msg = "Usuário ou senha incorretos!";
     }
 }
 ?>
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="../style/style.css">
+<meta charset="utf-8">
+<title>Login Simples</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="container">
-        <img src="../imagens/iconetrem_preto.png" alt="icone trem preto">
+<?php if (!empty($_SESSION["user_id"])): ?>
+  <div class="card">
+    <h3>Bem-vindo, <?= $_SESSION["username"] ?>!</h3>
+    <p>Sessão ativa.</p>
+    <p><a href="?logout=1">Sair</a></p>
+  </div>
 
-        <h2>Login</h2>
-
-    
-        <?php if (!empty($erro)): ?>
-            <p style="color:red; text-align:center;"><?= $erro ?></p>
-        <?php endif; ?>
-
-        <form method="POST">
-
-            <label>Usuário:</label>
-            <input type="text" name="usuario" placeholder="Digite seu usuário" required>
-
-            <label>Senha:</label>
-            <input type="password" name="senha" placeholder="Digite sua senha" required>
-
-            <button type="submit">Entrar</button>
-        </form>
-
-        <p><a href="tela_cadastro_1.php">Ainda não tem conta? Cadastre-se</a></p>
-
-    </div>
+<?php else: ?>
+  <div class="card">
+    <h3>Login</h3>
+    <?php if ($msg): ?><p class="msg"><?= $msg ?></p><?php endif; ?>
+    <form method="post">
+      <input type="text" name="username" placeholder="Usuário" required>
+      <input type="password" name="password" placeholder="Senha" required>
+      <button type="submit">Entrar</button>
+    </form>
+    <p><small>Dica: admin / 123456</small></p>
+  </div>
+<?php endif; ?>
 
 </body>
 </html>
