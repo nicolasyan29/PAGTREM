@@ -35,7 +35,7 @@
         $servername = "localhost";
         $username = "root"; 
         $password = "root";    
-        $dbname = "trem_facil";
+        $dbname = "pagtrem";
 
         $conn = new mysqli($servername, $username, $password, $dbname);
 
