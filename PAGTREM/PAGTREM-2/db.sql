@@ -1,5 +1,5 @@
-CREATE DATABASE trem_facil;
-USE trem_facil;
+CREATE DATABASE pagtrem;
+USE pagtrem;
 
 CREATE TABLE `estacao` (
   `id_estacao` int NOT NULL,
@@ -454,7 +454,7 @@ INSERT INTO `usuario` (`id_usuario`, `nome_completo`, `email`, `telefone`, `cep`
 (1, 'Rafael Almeida', 'rafael_almeida@gmail.com', '11987654321', '01234567', '12345678901', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 1, '2025-11-14 11:21:31'),
 (2, 'Andriel', 'andriel@gmail.com', '11987654322', '01234568', '12345678902', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 2, '2025-11-14 11:21:31'),
 (3, 'Arthur', 'arthur@gmail.com', '11987654323', '01234569', '12345678903', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 2, '2025-11-14 11:21:31'),
-(4, 'Caio', 'caio@gmail.com', '11987654324', '01234570', '12345678904', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 2, '2025-11-14 11:21:31');
+(4, 'Lucas', 'lucasperovano@gmail.com', '11987654323', '01234569', '12345678903', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 2, '2025-11-14 11:21:31'),
 
 CREATE TABLE `usuarios` (
   `id_usuario` int NOT NULL,
@@ -678,7 +678,6 @@ INSERT INTO `linha` (`id_exibicao`, `nome`, `status`, `status_color`) VALUES
 (3002, 'Tupy / Centro via Goes Monteiro', 'Ativo', '#00c853'),
 (3003, 'Tupy / Centro', 'Ativo', '#00c853'),
 (3004, 'Espinheiros/Centro', 'Ativo', '#00c853'),
-(4016, 'Pirabeiraba/Centro', 'Ativo', '#00c853'),
 (4017, 'Pirabeiraba / Rio Bonito', 'Ativo', '#00c853'),
 (4020, 'Pirabeiraba / Quiriri', 'Ativo', '#00c853'),
 (4030, 'Pirabeiraba / Estrada do Oeste', 'Manutenção', '#ffeb3b'),
