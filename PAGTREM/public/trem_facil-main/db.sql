@@ -1,5 +1,5 @@
-CREATE DATABASE trem_facil;
-USE trem_facil;
+CREATE DATABASE PAGTREM;
+USE PAGTREM;
 
 CREATE TABLE `estacao` (
   `id_estacao` int NOT NULL,
