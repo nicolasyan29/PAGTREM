@@ -5,7 +5,7 @@ session_start();
 $servername = "localhost";
 $username = "root";  
 $password = "root";  // Ajuste se sua senha for diferente
-$dbname = "trem_facil";
+$dbname = "PAGTREM";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {

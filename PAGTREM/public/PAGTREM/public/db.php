@@ -3,15 +3,15 @@
 $servername = "localhost";
 $username = "root";
 $password = "root";
-$dbname = "trem_facil";
+$dbname = "PAGTREM";
 $conn = new mysqli($servername, $username, $password);
 
 if ($conn->connect_error) {
     die("Conexão com o banco de dados falhou: " . $conn->connect_error);
 }
 
-$conn->query("CREATE DATABASE IF NOT EXISTS trem_facil");
-$conn->select_db("trem_facil");
+$conn->query("CREATE DATABASE IF NOT EXISTS PAGTREM");
+$conn->select_db("PAGTREM");
 
 $sql = "
 CREATE TABLE IF NOT EXISTS usuario (
@@ -88,9 +88,9 @@ $conn->query("INSERT IGNORE INTO sensor (nome, status, localizacao, ultima_atual
 ('SENSOR 3', 'ATIVO', 'Z', '1 MIN', '150', 'KM/H')");
 
 $conn->query("INSERT IGNORE INTO usuario (nome_completo, email, telefone, cep, cpf, senha, tipo_usuario) VALUES
-('Rafael Almeida', 'rafael_almeida@gmail.com', '11987654321', '01234567', '12345678901', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 1),
-('Andriel', 'andriel@gmail.com', '11987654322', '01234568', '12345678902', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 2),
-('Arthur', 'arthur@gmail.com', '11987654323', '01234569', '12345678903', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 2),
-('Caio', 'caio@gmail.com', '11987654324', '01234570', '12345678904', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 2)");
+('Matheus', 'matheus@gmail.com', '11987654321', '01234567', '12345678901', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 1),
+('Lucas', 'lucas@gmail.com', '11987654322', '01234568', '12345678902', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 2),
+('Nicolas', 'nicolas@gmail.com', '11987654323', '01234569', '12345678903', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 2),
+('Enrico', 'enrico@gmail.com', '11987654324', '01234570', '12345678904', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 2)");
 
 ?>
